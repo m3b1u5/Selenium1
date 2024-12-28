@@ -1,4 +1,4 @@
-# ДЗ: Импорт Selenium (edge)
+# ДЗ: Импорт Selenium (Edge)
 import time
 
 from selenium import webdriver
