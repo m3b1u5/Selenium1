@@ -20,5 +20,8 @@ user_name.send_keys("standard_user")
 user_password = driver.find_element(By.XPATH, "//*[@id='password']")
 user_password.send_keys("secret_sauce")
 
+button_login = driver.find_element(By.ID, "login-button")
+button_login.click()
+
 # time.sleep(10)
 # driver.close()
