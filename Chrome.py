@@ -14,10 +14,10 @@ driver.get(base_url)
 driver.maximize_window()
 # driver.set_window_size(1920, 1080)
 
-user_name = driver.find_element(By.ID, "user-name")
+user_name = driver.find_element(By.XPATH, "//*[@id='user-name']")
 user_name.send_keys("standard_user")
 
-user_password = driver.find_element(By.ID, "password")
+user_password = driver.find_element(By.XPATH, "//*[@id='password']")
 user_password.send_keys("secret_sauce")
 
 # time.sleep(10)
