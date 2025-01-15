@@ -23,7 +23,7 @@ user_name = driver.find_element(By.XPATH, "//input[@id='user-name']")
 user_name.send_keys('standard_user')
 print('Input Login')
 
-# Select and remove input form User login
+# Select and remove input from User login form
 user_name.send_keys(Keys.CONTROL + 'a')
 time.sleep(1)
 user_name.send_keys(Keys.BACKSPACE)
@@ -35,7 +35,7 @@ password = driver.find_element(By.XPATH, "//input[@id='password']")
 password.send_keys('secret_sauce')
 print('Input Password')
 
-# Select and remove input form password
+# Select and remove input from password form
 password.send_keys(Keys.CONTROL + 'a')
 time.sleep(1)
 password.send_keys(Keys.BACKSPACE)
