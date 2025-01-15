@@ -1,4 +1,5 @@
 # ДЗ: Selenium (Chrome)
+import datetime
 import time
 
 # importing requirements
@@ -15,7 +16,7 @@ driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverMan
 base_url = 'https://www.saucedemo.com/'  # URL to test
 driver.get(base_url)
 # driver.maximize_window()
-# driver.set_window_size(1920, 1080)
+driver.set_window_size(1920, 1080)
 
 # USERNAME input
 user_name = driver.find_element(By.XPATH, "//*[@id='user-name']")
@@ -24,7 +25,7 @@ print("Input login")
 
 # PASSWORD input
 user_password = driver.find_element(By.XPATH, "//*[@id='password']")
-user_password.send_keys("secret_sau")  # worng password
+user_password.send_keys("secret_sauce")
 print("Input password")
 
 # LOGIN button click
@@ -32,23 +33,30 @@ button_login = driver.find_element(By.ID, "login-button")
 button_login.click()
 print("Click on Login Button")
 print(f"Current URLS is: {driver.current_url}")
-get_url = driver.current_url
-target_url = "https://www.saucedemo.com/inventory.html"
+
+# Screenshots saving
+now_date = datetime.datetime.now().strftime("%Y.%m.%d-%H.%M.%S")
+name_screenshot = 'Screenshot-' + now_date + '.png'
+time.sleep(2)
+driver.save_screenshot('C:\\Users\\dbate\\PycharmProjects\\QA\\Selenium1\\Screenshots\\' + name_screenshot)
+print('Screenshot saved')
 
 # TESTS #
 
 # URL check
+# get_url = driver.current_url
+# target_url = "https://www.saucedemo.com/inventory.html"
 # assert target_url == get_url, "URL not correct"
 # print("URL correct")
 
 # WRONG PASSWORD input check
-warning_text = driver.find_element(By.XPATH, "//h3[@data-test='error']")
-value_warning_text = warning_text.text
-assert value_warning_text == "Epic sadface: Username and password do not match any user in this service", "Wrong message"
-print('Error message correct')
-error_button = driver.find_element(By.XPATH, "//button[@class='error-button']")
-error_button.click()
-print('Error button click')
+# warning_text = driver.find_element(By.XPATH, "//h3[@data-test='error']")
+# value_warning_text = warning_text.text
+# assert value_warning_text == "Epic sadface: Username and password do not match any user in this service", "Wrong message"
+# print('Error message correct')
+# error_button = driver.find_element(By.XPATH, "//button[@class='error-button']")
+# error_button.click()
+# print('Error button click')
 
 # TITLE check
 # text_products = driver.find_element(By.XPATH, "//span[@class='title']")
@@ -57,6 +65,6 @@ print('Error button click')
 # assert value_text_products == "Products", "Title not correct"
 # print("Title correct")
 
-print(f"{' All tests passed! ':=^50}")
+# print(f"{' All tests passed! ':=^50}")
 
 driver.close()
